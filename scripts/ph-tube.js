@@ -28,12 +28,24 @@ const loadCats = async () => {
 loadVids(1000);
 loadCats();
 
+function converTime(sec) {
+    if(sec > 0 ){
+        const hrs = Math.floor(sec/3600);
+        const mins = Math.floor((sec -(hrs*3600))/60);
+        const p = `<p class="absolute top-40 right-2 bg-black text-white text-xs p-1 rounded-md">${hrs}hrs ${mins}min ago</p>`;
+        return p;
+    }
+    else{
+        return ``;
+    }
+};
+
 const bluetich = `<i class="fa-solid fa-circle-check" style="color: #0433ff;"></i>`
 
 const displayVids = vids => {
     vids.forEach(vid => {
         const card = document.createElement('div')
-        card.classList = `card bg-base-100 shadow`
+        card.classList = `card bg-base-100 relative`
 
         card.innerHTML = `
         <figure><img class="rounded-lg h-48 w-full  object-cover" src="${vid.thumbnail}" alt="Shoes" /></figure>
@@ -46,6 +58,7 @@ const displayVids = vids => {
                 <h2 class="text-sm text-[#171717b3]">${vid.authors[0].profile_name} ${vid.authors[0].verified ? bluetich: ""}</h2>
                 <h3 class="text-sm text-[#171717b3]">${vid.others.views} views</h3>
             </div>
+            <div>${converTime(vid.others.posted_date)}</div>
         </div>
         `;
         container.appendChild(card);
@@ -70,7 +83,6 @@ function createBtns(cats) {
         btn.onclick = function() {
             container.innerHTML = ``;
             loadVids(cat.category_id);
-            id = cat.category_id;
         }
     });
 }
