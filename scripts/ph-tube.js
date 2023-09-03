@@ -1,8 +1,20 @@
+let container = document.getElementById('container');
+const sortBtn = document.getElementById('sort-btn');
 
 const loadVids = async (id) => {
     const res = await fetch(`https://openapi.programming-hero.com/api/videos/category/${id}`)
     const data = await res.json();
     const vids = data.data;
+    sortBtn.onclick = function() {
+        const sortedvids = vids.sort((a, b) => {
+            const x = parseFloat(a.others.views);
+            const y = parseFloat(b.others.views);
+        
+            return y - x;
+        });
+        container.innerHTML =``;
+        displayVids(sortedvids)
+    }
     displayVids(vids);
 }
 
@@ -11,13 +23,11 @@ const loadCats = async () => {
     const data = await res.json();
     const cats = data.data;
     createBtns(cats)
-    console.log(cats)
 }
 
 loadVids(1000);
 loadCats();
 
-let container = document.getElementById('container');
 const bluetich = `<i class="fa-solid fa-circle-check" style="color: #0433ff;"></i>`
 
 const displayVids = vids => {
@@ -60,6 +70,8 @@ function createBtns(cats) {
         btn.onclick = function() {
             container.innerHTML = ``;
             loadVids(cat.category_id);
+            id = cat.category_id;
         }
     });
 }
+
