@@ -45,10 +45,10 @@ const bluetich = `<i class="fa-solid fa-circle-check" style="color: #0433ff;"></
 const displayVids = vids => {
     vids.forEach(vid => {
         const card = document.createElement('div')
-        card.classList = `card bg-base-100 relative`
+        card.classList = `card bg-base-100 relative hover:shadow`
 
         card.innerHTML = `
-        <figure><img class="rounded-2xl h-48 w-full  object-cover" src="${vid.thumbnail}" alt="Shoes" /></figure>
+        <figure><img class="rounded-2xl h-48 w-full object-cover" src="${vid.thumbnail}" alt="Shoes" /></figure>
             <div class="card-body flex flex-row">
                 <div>
                     <img class="w-10 h-10 object-cover rounded-full" src="${vid.authors[0].profile_picture}" alt="Image">
