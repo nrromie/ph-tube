@@ -1,39 +1,91 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="light">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>PHtube Blog</title>
+    <link rel="shortcut icon" href="images/Logo.png" type="image/x-icon">
 
     <link href="https://cdn.jsdelivr.net/npm/daisyui@3.6.4/dist/full.css" rel="stylesheet" type="text/css" />
     <script src="https://cdn.tailwindcss.com"></script>
 </head>
-<body>
-    <div class="collapse collapse-arrow bg-base-200">
+<body class="w-11/12 mx-auto">
+  <h1 class="text-5xl font-bold text-center">Answer to the questions</h1>
+    <div class="collapse collapse-arrow">
         <input type="radio" name="my-accordion-2" checked="checked" /> 
         <div class="collapse-title text-xl font-medium">
             Discuss the scope of var, let, and const
         </div>
         <div class="collapse-content"> 
-          <p>hello</p>
+          <h1 class="text-center text-2xl font-medium my-2">The scope of var, let and const</h1>
+            <div class="py-5">
+              <h1 class="text-lg font-medium">var Scope:</h1>
+              <p>1. Variables declared with var have function-level or global scope. This means they are accessible throughout the entire function or, if declared outside of any function, they become global variables available throughout the entire script.</p>
+              <p>2. var variables are hoisted to the top of their containing function or script, which means they are moved to the top of their scope during compilation.</p>
+              <p>3. If you declare a var variable within a block (e.g., an if statement or loop), it is still accessible outside that block.</p>
+            </div>
+            <div class="py-5">
+              <h1 class="text-lg font-medium">let Scope:</h1>
+              <p>1. Variables declared with let have block-level scope, meaning they are only accessible within the block or statement where they are defined.</p>
+              <p>2. let variables are also hoisted to the top of their block but are not initialized until the actual declaration statement is encountered in the code.</p>
+            </div>
+            <div class="py-5">
+              <h1 class="text-lg font-medium">const Scope:</h1>
+              <p>1. Variables declared with const also have block-level scope, like let. However, they come with an additional characteristic: they are constant and cannot be reassigned after declaration.</p>
+              <p>2. Like let, const variables are hoisted to the top of their block but are not initialized until the actual declaration statement.</p>
+            </div>
         </div>
       </div>
-      <div class="collapse collapse-arrow bg-base-200">
+      <div class="collapse collapse-arrow">
         <input type="radio" name="my-accordion-2" /> 
         <div class="collapse-title text-xl font-medium">
             Tell us the use cases of null and undefined
         </div>
         <div class="collapse-content"> 
-          <p>hello</p>
+          <h1 class="text-center text-2xl font-medium">Use cases of undefined</h1>
+          <ul>
+            <li>1. A variable that has been declared but not assigned a value will result in an undefined value.</li>
+            <li>2. When a function does not explicitly return a value using the return statement, it returns undefined by default.</li>
+            <li>3. If a function expects a parameter but it is not provided when the function is called, the parameter's value inside the function will be undefined.</li>
+            <li>4. When the return statement in a function has no expression on the right side, it will return undefined.</li>
+            <li>5. When you attempt to access a property that does not exist on an object, the result will be undefined.</li>
+            <li>6. Trying to access elements in an array using an index outside of the valid range will yield undefined.</li>
+            <li>7. If you delete an element inside an array, the space where the element existed becomes undefined.</li>
+            <li>8. Directly setting a variable's value to undefined will explicitly assign it this value.</li>
+          </ul>
+          <h1 class="text-center text-2xl font-medium mt-4">Use cases of null</h1>
+          <ul>
+            <li>1. To explicitly indicate that a variable has no value or should be empty.</li>
+            <li>2. Unlike undefined, null is an explicitly assigned value.</li>
+            <li>3. When you want to reset or clear a variable.</li>
+          </ul>
         </div>
       </div>
-      <div class="collapse collapse-arrow bg-base-200">
+      <div class="collapse collapse-arrow">
         <input type="radio" name="my-accordion-2" /> 
         <div class="collapse-title text-xl font-medium">
             What do you mean by REST API?
         </div>
         <div class="collapse-content"> 
-          <p>hello</p>
+          <h1 class="text-center text-2xl font-medium">REST API</h1>
+          <p class="py-4">REST API stands for Representational State Transfer Application Programming Interface. It's an architectural style and set of constraints for designing networked applications. REST is not a specific technology, but rather a set of principles that define how web standards, such as HTTP and URLs, should be used to create web services.</p>
+          <h1>Here are some key characteristics and concepts associated with REST API:</h1>
+          <p class="py-3">1. Stateless: Each request from a client to a server must contain all the information needed to understand and process the request. The server should not store any information about the client's state between requests. This enhances scalability and simplifies the server.</p>
+          <p class="py-3">2. Resources: Resources are the key abstractions in REST. A resource can represent an object, data, or service. Resources are identified by URIs (Uniform Resource Identifiers), and they can have multiple representations (e.g., JSON, XML, HTML).</p>
+          <p class="py-3">3. HTTP Verbs: REST APIs use standard HTTP methods (verbs) to perform operations on resources. The most common HTTP methods used in REST are:
+            <ul class="pl-10">
+            <li>GET: Retrieve data from the server.</li>
+            <li>POST: Create a new resource on the server.</li>
+            <li>PUT: Update an existing resource on the server.</li>
+            <li>DELETE: Remove a resource from the server.</li>
+            </ul>
+          </p>
+          <p class="py-3">4. CRUD Operations: RESTful APIs often map to CRUD (Create, Read, Update, Delete) operations on resources. For example, GET is used for reading, POST for creating, PUT for updating, and DELETE for deleting resources.</p>
+          <p class="py-3">5. Statelessness: REST APIs are designed to be stateless. Each request should contain all the information needed for the server to fulfill the request. Sessions and state information are typically managed on the client side.</p>
+          <p class="py-3">6. Uniform Interface: REST APIs should have a consistent and uniform interface. This simplifies the client's understanding of how to interact with the API. It includes concepts like resource identification through URIs and the use of standard HTTP methods.</p>
+          <p class="py-3">7. Representation: Resources can have multiple representations (e.g., JSON, XML). Clients can request a specific representation of a resource based on their needs.</p>
+          <p class="py-3">8. Hypermedia (HATEOAS): REST APIs can include hypermedia links in responses, allowing clients to discover and navigate related resources. This principle is often referred to as HATEOAS (Hypermedia as the Engine of Application State).</p>
+          <p class="py-3">REST is widely used in web development, and RESTful APIs are common for building web services that communicate over HTTP. They are known for their simplicity, scalability, and ease of use, making them a popular choice for designing web APIs and services.</p>
         </div>
       </div>
 </body>

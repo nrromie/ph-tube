@@ -48,7 +48,7 @@ const displayVids = vids => {
         card.classList = `card bg-base-100 relative`
 
         card.innerHTML = `
-        <figure><img class="rounded-lg h-48 w-full  object-cover" src="${vid.thumbnail}" alt="Shoes" /></figure>
+        <figure><img class="rounded-2xl h-48 w-full  object-cover" src="${vid.thumbnail}" alt="Shoes" /></figure>
             <div class="card-body flex flex-row">
                 <div>
                     <img class="w-10 h-10 object-cover rounded-full" src="${vid.authors[0].profile_picture}" alt="Image">
@@ -77,7 +77,7 @@ const btnContainer = document.getElementById('btns-container');
 function createBtns(cats) {
     cats.forEach(cat => {
         const btn = document.createElement('button');
-        btn.classList = `btn mx-1`;
+        btn.classList = `btn sm:mx-1 mx-[1px]`;
         btn.innerText = cat.category;
         btnContainer.appendChild(btn);
         btn.onclick = function() {
